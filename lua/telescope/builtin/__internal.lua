@@ -1002,6 +1002,7 @@ internal.colorscheme = function(opts)
           end
           vim.cmd("colorscheme " .. entry.value)
           if opts.make_colorscheme_persistent then
+            os.execute("mkdir -p ~/.local/state/nvim")
             os.execute("echo " .. entry.value .. "> ~/.local/state/nvim/current_colorscheme")
           end
         end,
@@ -1021,6 +1022,7 @@ internal.colorscheme = function(opts)
           end
           vim.cmd("colorscheme " .. entry.value)
           if opts.make_colorscheme_persistent then
+            os.execute("mkdir -p ~/.local/state/nvim")
             os.execute("echo " .. entry.value .. "> ~/.local/state/nvim/current_colorscheme")
           end
         end,
@@ -1047,6 +1049,7 @@ internal.colorscheme = function(opts)
         need_restore = false
         vim.cmd("colorscheme " .. selection.value)
         if opts.make_colorscheme_persistent then
+          os.execute("mkdir -p ~/.local/state/nvim")
           os.execute("echo " .. selection.value .. "> ~/.local/state/nvim/current_colorscheme")
         end
       end)
