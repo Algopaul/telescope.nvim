@@ -1425,7 +1425,12 @@ builtin.colorscheme({opts})                  *telescope.builtin.colorscheme()*
         {opts} (table)  options to pass to the picker
 
     Options: ~
-        {enable_preview} (boolean)  if true, will preview the selected color
+        {enable_preview}              (boolean)  if true, will preview the
+                                                 selected color
+        {make_colorscheme_persistent} (boolean)  if true, selected color will
+                                                 be stored in file
+                                                 .local/state/nvim_colorscheme
+                                               
 
 
 builtin.marks({opts})                              *telescope.builtin.marks()*

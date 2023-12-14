@@ -355,6 +355,7 @@ builtin.buffers = require_on_exported_call("telescope.builtin.__internal").buffe
 --- Lists available colorschemes and applies them on `<cr>`
 ---@param opts table: options to pass to the picker
 ---@field enable_preview boolean: if true, will preview the selected color
+---@field make_colorscheme_persistent boolean: if true, selected colorscheme will be stored in file .local/state/nvim_colorscheme
 builtin.colorscheme = require_on_exported_call("telescope.builtin.__internal").colorscheme
 
 --- Lists vim marks and their value, jumps to the mark on `<cr>`

@@ -1001,7 +1001,9 @@ internal.colorscheme = function(opts)
             end
           end
           vim.cmd("colorscheme " .. entry.value)
-          os.execute("echo " .. entry.value .. "> ~/.local/state/nvim/current_colorscheme")
+          if opts.make_colorscheme_persistent then
+            os.execute("echo " .. entry.value .. "> ~/.local/state/nvim/current_colorscheme")
+          end
         end,
       }
     else
@@ -1018,7 +1020,9 @@ internal.colorscheme = function(opts)
             vim.api.nvim_buf_set_lines(self.state.bufnr, 0, -1, false, lines)
           end
           vim.cmd("colorscheme " .. entry.value)
-          os.execute("echo " .. entry.value .. "> ~/.local/state/nvim/current_colorscheme")
+          if opts.make_colorscheme_persistent then
+            os.execute("echo " .. entry.value .. "> ~/.local/state/nvim/current_colorscheme")
+          end
         end,
       }
     end
@@ -1042,7 +1046,9 @@ internal.colorscheme = function(opts)
         actions.close(prompt_bufnr)
         need_restore = false
         vim.cmd("colorscheme " .. selection.value)
-        os.execute("echo " .. selection.value .. "> ~/.local/state/nvim/current_colorscheme")
+        if opts.make_colorscheme_persistent then
+          os.execute("echo " .. selection.value .. "> ~/.local/state/nvim/current_colorscheme")
+        end
       end)
 
       return true
@@ -1057,7 +1063,7 @@ internal.colorscheme = function(opts)
       if need_restore then
         vim.o.background = before_background
         vim.cmd("colorscheme " .. before_color)
-        os.execute("echo " .. before_color .. "> ~/.local/state/nvim/current_colorscheme")
+        -- os.execute("echo " .. before_color .. "> ~/.local/state/nvim/current_colorscheme")
       end
     end
   end
